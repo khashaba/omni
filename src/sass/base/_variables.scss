@@ -2,9 +2,10 @@
 
 $primary-color: #bf3547;
 $accent-color: #f7ba51;
-$primary-border-color: #dddfdf;
+$primary-border-color: #EAEAEA;
 $primary-white: #ffffff;
 $primary-black: #000000;
+$primary-hover:#FCFCFC;
 
 //Media query variables
 $min: "min";
@@ -31,6 +32,9 @@ $font-lg: 20px;
 $font-xl: 24px;
 $font-xxl: 30px;
 
-$text-align: (left, right, center);
-$text-transforms: (uppercase, lowercase, capitalize, none);
-$cursors: (none, pointer, default, text);
+$font-weights:(
+    "light": 200,
+    "regular": 400,
+    "bold": 600,
+    "black-bold": 900,
+)

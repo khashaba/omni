@@ -1,2 +1,42 @@
 @import 'variables';
 @import 'mixins';
+
+table {
+
+      background: none;
+  
+      thead {
+        border-color: $primary-border-color;
+        border-width: 1px 0;
+        border-style: solid;
+      }
+  
+      tbody {
+        tr, tr.odd, tr.even {
+          background: none;
+  
+          &:hover {
+            background: $primary-hover;
+          }
+        }
+      }
+  
+      th {
+        color: $primary-color;
+        background: none;
+        text-transform: uppercase;
+        padding: 1em 4px;
+        font-weight: map-get($font-weights,black-bold );
+  
+        a, a.active {
+          color: $primary-color;
+        }
+      }
+  
+      td {
+        padding: 1.5em 4px;
+        border-color: $primary-border-color;
+        border-width: 1px 0 0 0;
+        border-style: solid;
+      }
+  }

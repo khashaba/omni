@@ -1,0 +1,15 @@
+@import 'variables';
+@import 'mixins';
+
+.container{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+}
+
+
+.table-component{
+    @include center(true, false);
+    margin-top: 10%;
+    
+}
