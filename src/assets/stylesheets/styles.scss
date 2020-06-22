@@ -1,0 +1,19 @@
+// Design System SASS files for Omni Challenge 
+
+/*
+Import Base Files to re-use in components
+*/
+
+@import "./assets/base/variables";
+@import "assets/base/mixins";
+
+/*
+
+Reset CSS and Bootstrap or Vendor SASS
+
+*/
+
+@import "./assets/partials/reset";
+@import "./assets/partials/common";
+@import "./assets/partials/grids";
+

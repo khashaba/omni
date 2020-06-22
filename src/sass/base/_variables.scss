@@ -1,0 +1,36 @@
+// Brand Colors
+
+$primary-color: #bf3547;
+$accent-color: #f7ba51;
+$primary-border-color: #dddfdf;
+$primary-white: #ffffff;
+$primary-black: #000000;
+
+//Media query variables
+$min: "min";
+$max: "max";
+// Media Query Breakpoints
+// Small tablets and large smartphones (landscape view)
+$screen-sm-min: 576px;
+
+// Small tablets (portrait view)
+$screen-md-min: 768px;
+
+// Tablets and small desktops
+$screen-lg-min: 992px;
+
+// Large tablets and desktops
+$screen-xl-min: 1200px;
+
+// Typography Sizes
+$font-xs: 12px;
+$font-sm: 14px;
+$base-font: 16px;
+$font-md: 18px;
+$font-lg: 20px;
+$font-xl: 24px;
+$font-xxl: 30px;
+
+$text-align: (left, right, center);
+$text-transforms: (uppercase, lowercase, capitalize, none);
+$cursors: (none, pointer, default, text);

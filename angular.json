@@ -28,8 +28,13 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/sass/styles.scss"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/sass/base"
+              ]
+            },
             "scripts": []
           },
           "configurations": {
@@ -123,6 +128,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "omni-challenge"
+    }
+  },
+  "defaultProject": "omni-challenge",
+  "cli": {
+    "analytics": false
+  }
 }

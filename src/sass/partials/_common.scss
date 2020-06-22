@@ -1,0 +1,99 @@
+//can give height of full screen to the element
+.fill-height {
+  height: 100vh;
+  //  margin-top: -100px;  //to be inserted once the header is introduced
+}
+
+.fill-width {
+  width: 100%;
+}
+
+.underline {
+  border: solid 2px $primary-color;
+  width: 60px;
+  border-radius: 3px;
+  background-color: $primary-color;
+}
+
+.full-width-ht {
+  height: 100%;
+  width: 100%;
+  display: inline-block;
+}
+
+.fl {
+  float: left;
+}
+
+.fr {
+  float: right;
+}
+
+.dir-initial {
+  direction: initial !important;
+}
+
+/*common styling for border start*/
+.border {
+  &-top {
+    border-top: 1px solid $primary-border-color;
+
+    &-none {
+      border-top: none;
+    }
+  }
+
+  &-right {
+    border-right: 1px solid $primary-border-color;
+
+    &-none {
+      border-right: none;
+    }
+  }
+
+  &-bottom {
+    border-bottom: 1px solid $primary-border-color;
+
+    &-none {
+      border-bottom: none;
+    }
+  }
+
+  &-left {
+    border-left: 1px solid $primary-border-color;
+
+    &-none {
+      border-left: none;
+    }
+  }
+
+  &-all {
+    border: 1px solid $primary-border-color;
+
+    &-none {
+      border: none !important;
+    }
+  }
+
+  &-x {
+    border-left: 1px solid $primary-border-color;
+    border-right: 1px solid $primary-border-color;
+
+    &-none {
+      border-left: none;
+      border-right: none;
+    }
+  }
+
+  &-y {
+    border-top: 1px solid $primary-border-color;
+    border-bottom: 1px solid $primary-border-color;
+
+    &-none {
+      border-top: none;
+      border-bottom: none;
+    }
+  }
+}
+
+/*common styling for border end*/
