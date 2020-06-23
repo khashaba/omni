@@ -1,4 +1,21 @@
 //can give height of full screen to the element
+td,
+th,
+input {
+  background-color: transparent;
+  text-align: center;
+  &:focus {
+    outline-color: $silver-grey;
+    padding: 10px 0;
+    transition: padding 400ms;
+  }
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}
+
 .fill-height {
   height: 100vh;
   //  margin-top: -100px;  //to be inserted once the header is introduced
@@ -95,5 +112,4 @@
     }
   }
 }
-
 /*common styling for border end*/

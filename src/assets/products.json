@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "title": "Galaxy Note",
+    "category": "Mobile",
+    "price": "300",
+    "date":"2020-12-12",
+    "available": true
+  },
+  {
+    "id": 2,
+    "title": "Iphone x",
+    "category": "Mobile",
+    "price": "320",
+    "date":"2020-02-29",
+    "available": true
+  },
+  {
+    "id": 3,
+    "title": "Galaxy Note Lite",
+    "category": "Mobile",
+    "price": "210",
+    "date":"2020-02-10",
+    "available": false
+  },
+  {
+    "id": 4,
+    "title": "Pixle",
+    "category": "Mobile",
+    "price": "290",
+    "date":"2020-02-20",
+    "available": false
+  },
+  {
+    "id": 5,
+    "title": "Iphone 11",
+    "category": "Mobile",
+    "price": "430",
+    "date":"2020-05-15",
+    "available": true
+  },
+  {
+    "id": 6,
+    "title": "Galaxy Note 10",
+    "category": "Mobile",
+    "price": "300",
+    "date":"2020-05-10",
+    "available": true
+  },
+  {
+    "id": 7,
+    "title": "Microwave",
+    "category": "electronics",
+    "price": "120",
+    "date":"2020-06-23",
+    "available": true
+  },
+  {
+    "id": 8,
+    "title": "Boiler",
+    "category": "electronics",
+    "price": "50",
+    "date":"2020-05-29",
+    "available": false
+  },
+  {
+    "id": 9,
+    "title": "Samsung TV",
+    "category": "electronics",
+    "price": "290",
+    "date":"2019-01-10",
+    "available": true
+  },
+  {
+    "id": 10,
+    "title": "Sony TV",
+    "category": "electronics",
+    "price": "430",
+    "date":"2020-02-10",
+    "available": false
+  }
+]

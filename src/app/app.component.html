@@ -1,3 +1,45 @@
 <div class="container">
-    <app-generic-table class="table-component"></app-generic-table>
+  <app-generic-table
+    class="table-component"
+    [localJson]="getPath()"
+    [displayedColumns]="[
+      {
+        columnName: 'id',
+        dataType: 'number',
+        width: '30px',
+        padding: '0 5px'
+
+      },
+      {
+        columnName: 'title',
+        dataType: 'text'
+      },
+      {
+        columnName: 'date',
+        dataType: 'date'
+
+      },
+      {
+        columnName: 'price',
+        dataType: 'currency'
+      },
+      {
+        columnName: 'available',
+        dataType: 'checkbox'
+      }
+    ]"
+    [showTableBorders]=true
+    [tableWidth]="'1000'"
+  ></app-generic-table>
 </div>
+
+<!-- <div class="container">
+    <app-generic-table
+      class="table-component"
+      [localJson]="getPath()"
+      [apiPath]="'https://jsonplaceholder.typicode.com/users'"
+      [displayedColumns]="['id', 'title', 'category', 'price']"
+      [displayedColumns]="['id', 'name', 'username', 'email']"
+    ></app-generic-table>
+  </div>
+   -->
