@@ -6,21 +6,17 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { GenericTableComponent } from './generic-table/generic-table.component';
-import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
-import {TranslateHttpLoader} from '@ngx-translate/http-loader';
-import { LanguageGroupComponent } from './shared-components/language-group/language-group.component';
-
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { LanguageGroupComponent } from './shared/components/language-group/language-group.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
-   return new TranslateHttpLoader(http);
+  return new TranslateHttpLoader(http);
 }
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    GenericTableComponent,
-    LanguageGroupComponent
-  ],
+  declarations: [AppComponent, GenericTableComponent, LanguageGroupComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
@@ -28,13 +24,14 @@ export function HttpLoaderFactory(http: HttpClient) {
     AppRoutingModule,
     TranslateModule.forRoot({
       loader: {
-          provide: TranslateLoader,
-          useFactory: HttpLoaderFactory,
-          deps: [HttpClient]
-      }
-  })
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient],
+      },
+    }),
+    NgxPaginationModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

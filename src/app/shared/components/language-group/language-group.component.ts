@@ -1,5 +1,4 @@
-import { Component, OnInit, EventEmitter, Input, Output } from '@angular/core';
-import { ApplicationService } from 'src/app/application.service';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-language-group',

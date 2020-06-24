@@ -3,7 +3,7 @@
     "id": 1,
     "title": "Galaxy Note",
     "category": "Mobile",
-    "price": "300",
+    "price": 300,
     "date":"2020-12-12",
     "available": true
   },
@@ -11,7 +11,7 @@
     "id": 2,
     "title": "Iphone x",
     "category": "Mobile",
-    "price": "320",
+    "price": 320,
     "date":"2020-02-29",
     "available": true
   },
@@ -19,7 +19,7 @@
     "id": 3,
     "title": "Galaxy Note Lite",
     "category": "Mobile",
-    "price": "210",
+    "price": 210,
     "date":"2020-02-10",
     "available": false
   },

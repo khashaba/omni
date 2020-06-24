@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AppLanguageGroupComponent } from './app-language-group.component';
+import { LanguageGroupComponent } from './language-group.component';
 
 describe('AppLanguageGroupComponent', () => {
-  let component: AppLanguageGroupComponent;
-  let fixture: ComponentFixture<AppLanguageGroupComponent>;
+  let component: LanguageGroupComponent;
+  let fixture: ComponentFixture<LanguageGroupComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AppLanguageGroupComponent ]
+      declarations: [ LanguageGroupComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AppLanguageGroupComponent);
+    fixture = TestBed.createComponent(LanguageGroupComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

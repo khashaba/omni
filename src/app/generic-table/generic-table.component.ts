@@ -12,18 +12,20 @@ export class GenericTableComponent implements OnInit {
   @Input() showTableBorders = false;
   @Input() displayedColumns = [];
   @Input() tableWidth = null;
+  @Input() paginationSizeArray: number[] = null;
+  @Input() paginationSize = 25;
+
   receivedTableData;
   errorMessage: string = null;
   showIcon = false;
-
+  totalRec: number;
+  page = 1;
   constructor(private httpClient: HttpClient) {}
 
   ngOnInit(): void {
     this.populateTableData();
   }
-  showInConsole() {
-    console.log(this.tableWidth);
-  }
+
   getColoumsNames() {
     return this.displayedColumns.map((column) => column.columnName);
   }
@@ -44,11 +46,18 @@ export class GenericTableComponent implements OnInit {
     } else {
       this.errorMessage = 'Error: You have to identify data source';
     }
+    this.totalRec = this.receivedTableData.length;
   }
   showCloseIcon() {
     this.showIcon = !this.showIcon;
   }
   removecolumn(index: number) {
     this.displayedColumns.splice(index, 1);
+  }
+  changePaginationSize(event) {
+    this.paginationSize = event;
+  }
+  showInConsole() {
+    console.log(this.receivedTableData);
   }
 }
