@@ -12,3 +12,10 @@
       transform: translate(0, -50%);
     }
   }
+
+  @mixin icon{
+    display: inline-block;
+    left: 1.1em;
+    color: $primary-black;
+    padding: 10px;
+  }

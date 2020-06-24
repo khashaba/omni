@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-generic-table',
   templateUrl: './generic-table.component.html',
-  styleUrls: ['./generic-table.component.scss'],
+  styleUrls: ['./generic-table.component.scss']
 })
 export class GenericTableComponent implements OnInit {
   @Input() apiPath = null;
@@ -16,8 +16,10 @@ export class GenericTableComponent implements OnInit {
   @Input() paginationSize = 25;
 
   receivedTableData;
+  filters = ['equality', 'range' ];
   errorMessage: string = null;
-  showIcon = false;
+  showIcon = [];
+  isFilter = [];
   totalRec: number;
   page = 1;
   constructor(private httpClient: HttpClient) {}
@@ -48,14 +50,20 @@ export class GenericTableComponent implements OnInit {
     }
     this.totalRec = this.receivedTableData.length;
   }
-  showCloseIcon() {
-    this.showIcon = !this.showIcon;
+  showCloseIcon(i) {
+    this.showIcon[i] = !this.showIcon[i];
   }
   removecolumn(index: number) {
     this.displayedColumns.splice(index, 1);
   }
   changePaginationSize(event) {
     this.paginationSize = event;
+  }
+  filterToggle(i) {
+    this.isFilter[i] = !this.isFilter[i];
+  }
+  applyFilter(option) {
+    console.log(option);
   }
   showInConsole() {
     console.log(this.receivedTableData);
