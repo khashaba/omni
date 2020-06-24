@@ -1,4 +1,6 @@
+<app-language-group (languageChange)='changeLanguage($event)'></app-language-group>
 <div class="container">
+  <div>{{ 'TITLE' | translate }}</div>
   <app-generic-table
     class="table-component"
     [localJson]="getPath()"
