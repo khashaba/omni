@@ -1,5 +1,6 @@
 @import 'variables';
 @import 'mixins';
+@import 'search';
 
 table {
   background: none;
@@ -29,7 +30,7 @@ table {
     color: $primary-color;
     background: none;
     text-transform: uppercase;
-    padding: 1em 4px;
+    padding: 0;
     font-weight: map-get($font-weights, black-bold);
     position: relative;
 
@@ -45,7 +46,8 @@ table {
    
     .filter-icon, .trash-icon,.sort-icon{
       @include icon;
-
+      position: relative;
+      z-index: 1;
     }
 
     .filter-menu{
@@ -85,6 +87,11 @@ table {
       }
       animation: dispaly 0.6s ease-in forwards;
       
+    }
+    .search{
+      @include center(false, true);
+      background-color: $primary-white;
+      width: 10px;
     }
   }
 

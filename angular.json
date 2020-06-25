@@ -23,10 +23,10 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "aot": true,
-            "assets": ["src/favicon.ico", "src/assets"],
+            "assets": ["src/favicon.ico", "src/assets", "src/assets/icons/*"],
             "styles": ["src/sass/styles.scss"],
             "stylePreprocessorOptions": {
-              "includePaths": ["src/sass/base"]
+              "includePaths": ["src/sass/base","src/sass/partials"]
             },
             "scripts": []
           },

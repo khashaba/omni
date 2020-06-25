@@ -23,6 +23,7 @@ export class GenericTableComponent implements OnInit {
   isDeletePopupDisplayed = [];
   isFilterPopupDisplayed = [];
   totalRec: number;
+  isInputFocused = false;
   page = 1;
   constructor(
     private httpClient: HttpClient,
@@ -91,6 +92,6 @@ export class GenericTableComponent implements OnInit {
     }
   }
   showInConsole() {
-    console.log(this.receivedTableData);
+    console.log(this.isInputFocused);
   }
 }

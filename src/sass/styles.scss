@@ -8,11 +8,14 @@ Import Base Files to re-use in components
 @import "./base/mixins";
 
 /*
-
 Reset CSS and Bootstrap or Vendor SASS
-
 */
 
 @import "./partials/reset";
 @import "./partials/common";
+
+/*
+ styling components 
+*/
+@import "./partials/search";
 

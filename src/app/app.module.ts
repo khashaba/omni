@@ -11,13 +11,15 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { LanguageGroupComponent } from './shared/components/language-group/language-group.component';
 import { UtilityService } from './shared/services/utility.service';
+import { WelcomeComponent } from './welcome/welcome.component';
+import { ChallengeComponent } from './challenge/challenge.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
 }
 
 @NgModule({
-  declarations: [AppComponent, GenericTableComponent, LanguageGroupComponent],
+  declarations: [AppComponent, GenericTableComponent, LanguageGroupComponent, WelcomeComponent, ChallengeComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
