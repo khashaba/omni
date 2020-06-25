@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { UtilityService } from '../shared/services/utility.service';
 
 @Component({
   selector: 'app-generic-table',
@@ -16,13 +17,17 @@ export class GenericTableComponent implements OnInit {
   @Input() paginationSize = 25;
 
   receivedTableData;
-  filters = ['equality', 'range' ];
+  filters = ['equality', 'range'];
+  applyFilters = { range: { from: '', to: '' } };
   errorMessage: string = null;
-  showIcon = [];
-  isFilter = [];
+  isDeletePopupDisplayed = [];
+  isFilterPopupDisplayed = [];
   totalRec: number;
   page = 1;
-  constructor(private httpClient: HttpClient) {}
+  constructor(
+    private httpClient: HttpClient,
+    private utility: UtilityService
+  ) {}
 
   ngOnInit(): void {
     this.populateTableData();
@@ -50,9 +55,7 @@ export class GenericTableComponent implements OnInit {
     }
     this.totalRec = this.receivedTableData.length;
   }
-  showCloseIcon(i) {
-    this.showIcon[i] = !this.showIcon[i];
-  }
+
   removecolumn(index: number) {
     this.displayedColumns.splice(index, 1);
   }
@@ -60,10 +63,32 @@ export class GenericTableComponent implements OnInit {
     this.paginationSize = event;
   }
   filterToggle(i) {
-    this.isFilter[i] = !this.isFilter[i];
+    this.closePopup('delete');
+    this.isFilterPopupDisplayed[i] = !this.isFilterPopupDisplayed[i];
   }
-  applyFilter(option) {
-    console.log(option);
+  deleteToggle(i) {
+    this.closePopup('filter');
+    this.isDeletePopupDisplayed[i] = !this.isDeletePopupDisplayed[i];
+  }
+  applyFilter(column) {
+    this.closePopup('all');
+    this.receivedTableData = this.utility.filter(
+      this.receivedTableData,
+      column,
+      this.applyFilters
+    );
+  }
+  closePopup(popupName) {
+    if (popupName === 'all') {
+      this.isDeletePopupDisplayed = [];
+      this.isFilterPopupDisplayed = [];
+    }
+    if (popupName === 'delete') {
+      this.isDeletePopupDisplayed = [];
+    }
+    if (popupName === 'filter') {
+      this.isFilterPopupDisplayed = [];
+    }
   }
   showInConsole() {
     console.log(this.receivedTableData);

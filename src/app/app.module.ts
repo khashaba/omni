@@ -10,6 +10,7 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { LanguageGroupComponent } from './shared/components/language-group/language-group.component';
+import { UtilityService } from './shared/services/utility.service';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -31,7 +32,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     }),
     NgxPaginationModule,
   ],
-  providers: [],
+  providers: [UtilityService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

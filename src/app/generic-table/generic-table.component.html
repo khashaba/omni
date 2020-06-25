@@ -7,7 +7,7 @@
         [ngStyle]="{ width: column.width, padding: column.padding }"
       >
         <span
-          *ngIf="showIcon[i]"
+          *ngIf="isDeletePopupDisplayed[i]"
           class="fa fa-times remove"
           (click)="removecolumn(i)"
         ></span>
@@ -15,14 +15,14 @@
         <i
           class="fa fa-trash trash-icon"
           aria-hidden="true"
-          (click)="showCloseIcon(i)"
+          (click)="deleteToggle(i)"
         ></i>
         <i
           class="fa fa-filter filter-icon"
           aria-hidden="true"
           (click)="filterToggle(i)"
         ></i>
-        <div class="filter-menu" *ngIf="isFilter[i]">
+        <div class="filter-menu" *ngIf="isFilterPopupDisplayed[i]">
           <li *ngFor="let filter of filters">
             <span>{{ filter }}</span>
             <div *ngIf="filter == 'equality'" class="controls">
@@ -31,6 +31,7 @@
                 type="radio"
                 name="{{ filter }}"
                 value="true"
+                (change) = "applyFilters['equality']=true"
               />
               <label class="radio" for="true">True</label>
               <input
@@ -38,6 +39,7 @@
                 type="radio"
                 name="{{ filter }}"
                 value="false"
+                (change) = "applyFilters['equality']=false"
               />
               <label class="radio" for="false">False</label>
             </div>
@@ -47,16 +49,18 @@
                 type="number"
                 placeholder="from"
                 name="{{ filter }}"
+                [(ngModel)]="applyFilters.range.from"
               />
               <input
                 class="radio"
                 type="number"
                 placeholder="to"
                 name="{{ filter }}"
+                [(ngModel)]="applyFilters.range.to"
               />
             </div>
           </li>
-          <li><button type="button">Filter!</button></li>
+          <li><button type="button" (click)="applyFilter(column)">Filter!</button></li>
         </div>
         <i class="fa fa-sort sort-icon" aria-hidden="true"></i>
       </th>
