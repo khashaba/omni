@@ -10,6 +10,10 @@
         @include center(true,false);
         text-align: center;
         margin-top: 20px;
+        p{
+            font-size: $font-sm;
+            color: $silver-grey;
+        }
 
     }
     .table-component{

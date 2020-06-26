@@ -15,13 +15,25 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { ChallengeComponent } from './challenge/challenge.component';
 import { PageNotFoundComponent } from './shared/components/page-not-found/page-not-found.component';
 import { HeaderComponent } from './shared/components/header/header.component';
+import { SearchPipe } from './shared/pipes/search.pipe';
+import { SortByPipe } from './shared/pipes/sort-by.pipe';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
 }
 
 @NgModule({
-  declarations: [AppComponent, GenericTableComponent, LanguageGroupComponent, WelcomeComponent, ChallengeComponent, PageNotFoundComponent, HeaderComponent],
+  declarations: [
+    AppComponent,
+    GenericTableComponent,
+    LanguageGroupComponent,
+    WelcomeComponent,
+    ChallengeComponent,
+    PageNotFoundComponent,
+    HeaderComponent,
+    SearchPipe,
+    SortByPipe
+  ],
   imports: [
     BrowserModule,
     HttpClientModule,
@@ -30,13 +42,13 @@ export function HttpLoaderFactory(http: HttpClient) {
       loader: {
         provide: TranslateLoader,
         useFactory: HttpLoaderFactory,
-        deps: [HttpClient],
-      },
+        deps: [HttpClient]
+      }
     }),
     NgxPaginationModule,
     AppRoutingModule
   ],
   providers: [UtilityService],
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent]
 })
 export class AppModule {}

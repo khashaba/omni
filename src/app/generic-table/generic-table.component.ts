@@ -15,6 +15,8 @@ export class GenericTableComponent implements OnInit {
   @Input() tableWidth = null;
   @Input() paginationSizeArray: number[] = null;
   @Input() paginationSize = 25;
+  @Input() searchableTypes = [];
+  @Input() sortTypes = ['', 'asc', 'desc'];
 
   receivedTableData;
   filters = ['equality', 'range'];
@@ -22,8 +24,14 @@ export class GenericTableComponent implements OnInit {
   errorMessage: string = null;
   isDeletePopupDisplayed = [];
   isFilterPopupDisplayed = [];
+  sortColumn = '';
+  sortIndex = 0;
   totalRec: number;
   isInputFocused = false;
+  searchText = [];
+  searchColumn = '';
+
+  
   page = 1;
   constructor(
     private httpClient: HttpClient,
@@ -71,6 +79,16 @@ export class GenericTableComponent implements OnInit {
     this.closePopup('filter');
     this.isDeletePopupDisplayed[i] = !this.isDeletePopupDisplayed[i];
   }
+  sortToggle(columnName: string) {
+    if (this.sortColumn === columnName) {
+      if (this.sortIndex < this.sortTypes.length - 1) { this.sortIndex++; }
+      else { this.sortIndex = 0; }
+    }
+    else{
+      this.sortColumn = columnName;
+      this.sortIndex++;
+    }
+  }
   applyFilter(column) {
     this.closePopup('all');
     this.receivedTableData = this.utility.filter(
@@ -91,7 +109,15 @@ export class GenericTableComponent implements OnInit {
       this.isFilterPopupDisplayed = [];
     }
   }
+  onSearchFocus(column: string) {
+    this.searchColumn = '';
+    this.searchColumn = column;
+    this.isInputFocused = true;
+  }
+  onSearchBlur() {
+    this.isInputFocused = false;
+  }
   showInConsole() {
-    console.log(this.isInputFocused);
+    console.log(this.searchText);
   }
 }

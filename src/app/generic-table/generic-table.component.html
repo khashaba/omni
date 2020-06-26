@@ -6,33 +6,60 @@
         class="pointer"
         [ngStyle]="{ width: column.width, padding: column.padding }"
       >
-        <span
-          *ngIf="isDeletePopupDisplayed[i]"
-          class="fa fa-times remove"
-          (click)="removecolumn(i)"
-        ></span>
-        {{ column.columnName | uppercase }}
-        <i
-          class="fa fa-trash trash-icon"
-          aria-hidden="true"
-          (click)="deleteToggle(i)"
-        ></i>
-        <i
-          class="fa fa-filter filter-icon"
-          aria-hidden="true"
-          (click)="filterToggle(i)"
-        ></i>
-        <div class="search" [ngStyle]="{'z-index': isInputFocused?100:0}">
-          <input type="text" placeholder=" " (focus)="isInputFocused=true" (blur)="isInputFocused=false" >
+        <div class="icons" *ngIf="!searchText[column.columnName]">
+          <i
+            *ngIf="isDeletePopupDisplayed[i]"
+            class="fa fa-times remove"
+            (click)="removecolumn(i)"
+          ></i>
+          {{ column.columnName | uppercase }}
+          <i
+            class="fa fa-trash trash-icon"
+            aria-hidden="true"
+            (click)="deleteToggle(i)"
+          ></i>
+          <i
+            class="fa fa-filter filter-icon"
+            aria-hidden="true"
+            (click)="filterToggle(i)"
+          ></i>
+          <i
+            class="fa fa-sort sort-icon"
+            [ngClass]="{
+              'fa-sort': true,
+              'fa-sort-asc':
+                sortTypes[sortIndex] == 'asc' &&
+                sortColumn == column.columnName,
+              'fa-sort-desc':
+                sortTypes[sortIndex] == 'desc' &&
+                sortColumn == column.columnName
+            }"
+            aria-hidden="true"
+            (click)="sortToggle(column.columnName)"
+          ></i>
+        </div>
+        <div
+          class="search"
+          *ngIf="searchableTypes.includes(column.dataType)"
+          [ngStyle]="{ 'z-index': isInputFocused ? 100 : 0 }"
+        >
+          <input
+            type="text"
+            [(ngModel)]="searchText[column.columnName]"
+            placeholder=" "
+            (focus)="onSearchFocus(column.columnName)"
+            (blur)="onSearchBlur()"
+          />
           <div class="mydiv on-search-index">
-              <svg viewBox="0 0 160 28" >
-              <path d="M32.9418651,-20.6880772 C37.9418651,-20.6880772 40.9418651,-16.6880772 40.9418651,-12.6880772 C40.9418651,-8.68807717 37.9418651,-4.68807717 32.9418651,-4.68807717 C27.9418651,-4.68807717 24.9418651,-8.68807717 24.9418651,-12.6880772 C24.9418651,-16.6880772 27.9418651,-20.6880772 32.9418651,-20.6880772 L32.9418651,-29.870624 C32.9418651,-30.3676803 33.3448089,-30.770624 33.8418651,-30.770624 C34.08056,-30.770624 34.3094785,-30.6758029 34.4782612,-30.5070201 L141.371843,76.386562" transform="translate(83.156854, 22.171573) rotate(-225.000000) translate(-83.156854, -22.171573)"></path>
-              </svg>
+            <svg viewBox="0 0 160 28">
+              <path
+                d="M32.9418651,-20.6880772 C37.9418651,-20.6880772 40.9418651,-16.6880772 40.9418651,-12.6880772 C40.9418651,-8.68807717 37.9418651,-4.68807717 32.9418651,-4.68807717 C27.9418651,-4.68807717 24.9418651,-8.68807717 24.9418651,-12.6880772 C24.9418651,-16.6880772 27.9418651,-20.6880772 32.9418651,-20.6880772 L32.9418651,-29.870624 C32.9418651,-30.3676803 33.3448089,-30.770624 33.8418651,-30.770624 C34.08056,-30.770624 34.3094785,-30.6758029 34.4782612,-30.5070201 L141.371843,76.386562"
+                transform="translate(83.156854, 22.171573) rotate(-225.000000) translate(-83.156854, -22.171573)"
+              ></path>
+            </svg>
           </div>
-      </div>
-          
-     
-          
+        </div>
+
         <div class="filter-menu" *ngIf="isFilterPopupDisplayed[i]">
           <li *ngFor="let filter of filters">
             <span>{{ filter }}</span>
@@ -42,7 +69,7 @@
                 type="radio"
                 name="{{ filter }}"
                 value="true"
-                (change) = "applyFilters['equality']=true"
+                (change)="applyFilters['equality'] = true"
               />
               <label class="radio" for="true">True</label>
               <input
@@ -50,7 +77,7 @@
                 type="radio"
                 name="{{ filter }}"
                 value="false"
-                (change) = "applyFilters['equality']=false"
+                (change)="applyFilters['equality'] = false"
               />
               <label class="radio" for="false">False</label>
             </div>
@@ -71,9 +98,10 @@
               />
             </div>
           </li>
-          <li><button type="button" (click)="applyFilter(column)">Filter!</button></li>
+          <li>
+            <button type="button" (click)="applyFilter(column)">Filter!</button>
+          </li>
         </div>
-        <i class="fa fa-sort sort-icon" aria-hidden="true"></i>
       </th>
     </tr>
   </thead>
@@ -81,6 +109,12 @@
     <tr
       *ngFor="
         let dataRow of receivedTableData
+          | search
+            : {
+                searchColumn: searchColumn,
+                searchText: searchText[searchColumn]
+              }
+          | sortBy: sortTypes[sortIndex]:sortColumn
           | paginate
             : {
                 id: 'listing-pagination',
@@ -88,7 +122,7 @@
                 currentPage: page,
                 totalItems: totalRec
               };
-        let i = index
+        index as i
       "
     >
       <td *ngFor="let column of displayedColumns; let columnNumber = index">
@@ -124,7 +158,7 @@
   </tbody>
 </table>
 <div class="table-footer">
-  <p>item per page</p>
+  <p>{{"ITEMS_PER_PAGE" | translate}}</p>
   <div class="dropdown">
     <select
       class="dropdown-select"
@@ -138,13 +172,9 @@
       >
     </select>
   </div>
-  <div>
     <pagination-controls
       id="listing-pagination"
       directionLinks="true"
       (pageChange)="page = $event"
     ></pagination-controls>
-  </div>
 </div>
-
-<button (click)="showInConsole()">Press me</button>

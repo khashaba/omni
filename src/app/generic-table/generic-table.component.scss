@@ -34,7 +34,6 @@ table {
     font-weight: map-get($font-weights, black-bold);
     position: relative;
 
-
     a,
     a.active {
       color: $primary-color;
@@ -43,25 +42,35 @@ table {
       @include center(true, false);
       animation: dispaly-close 0.6s ease-in forwards;
     }
-   
-    .filter-icon, .trash-icon,.sort-icon{
+
+    .icons {
+      display: inline-block;
+    }
+    .filter-icon,
+    .trash-icon,
+    .sort-icon {
       @include icon;
       position: relative;
       z-index: 1;
     }
+    .fa-sort-desc,
+    .fa-sort-asc {
+      color: $primary-color;
+    }
 
-    .filter-menu{
+    .filter-menu {
       background-color: $primary-white;
       color: $primary-black;
       border: solid 1px $primary-color;
-      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+        0 6px 20px 0 rgba(0, 0, 0, 0.19);
       border-radius: 10px;
       position: absolute;
       margin-top: 18px;
       width: 350px;
       z-index: 100;
       @include center(true, false);
-      li{
+      li {
         list-style-type: none;
         margin: 10px 30px;
         padding: 5px 15px 15px 20px;
@@ -69,26 +78,25 @@ table {
         &:last-child {
           border-style: none;
         }
-      };
+      }
       .controls {
         display: flex;
         margin-top: 10px;
         .radio {
-          flex: 1 ;
+          flex: 1;
           display: flex;
           flex-direction: column;
           align-items: center;
         }
       }
-      input{
-        border:1px solid $primary-black;
+      input {
+        border: 1px solid $primary-black;
         border-radius: 4px;
         margin: 0 5px;
       }
       animation: dispaly 0.6s ease-in forwards;
-      
     }
-    .search{
+    .search {
       @include center(false, true);
       background-color: $primary-white;
       width: 10px;
@@ -105,20 +113,19 @@ table {
     width: 100%;
   }
 }
-button{
+button {
   @extend .pointer;
   background-color: $primary-white;
   color: $primary-color;
-  font-weight: map-get($font-weights,bold);
-width: 150px;
+  font-weight: map-get($font-weights, bold);
+  width: 150px;
   font-family: inherit;
-  border:1px solid $primary-color;
+  border: 1px solid $primary-color;
   font-size: 1.2em;
   border-radius: 4px;
   padding: 5px 10px;
-  &:hover{
-  box-shadow: 0 4px 6px 0 $primary-color;
-
+  &:hover {
+    box-shadow: 0 4px 6px 0 $primary-color;
   }
 }
 table {
@@ -217,80 +224,103 @@ table {
     }
   }
 }
-.dropdown {
-  display: inline-block;
+
+.table-footer {
+  display: flex;
+  flex-direction:column;
+  padding: 20px 40px;
+  margin-bottom: 50px;
   position: relative;
-  overflow: hidden;
-  height: 28px;
-  width: 150px;
-  background: #f2f2f2;
-  border: 1px solid;
-  border-color: white #f7f7f7 #f5f5f5;
-  border-radius: 3px;
 
-  &:before,
-  &:after {
-    content: '';
-    position: absolute;
-    z-index: 2;
-    top: 9px;
-    right: 10px;
-    width: 0;
-    height: 0;
-    border: 4px dashed;
-    border-color: #888 transparent;
-    pointer-events: none;
+
+  p {
+    display: block;
+    color: $primary-black;
   }
-
-  &:before {
-    border-bottom-style: solid;
-    border-top: none;
-  }
-
-  &:after {
-    margin-top: 7px;
-    border-top-style: solid;
-    border-bottom: none;
-  }
-  &:focus {
-    outline-style: none;
-  }
-}
-
-.dropdown-select {
-  position: relative;
-  width: 130%;
-  margin: 0;
-  padding: 6px 8px 6px 10px;
-  height: 28px;
-  line-height: 14px;
-  font-size: 12px;
-  outline-style: none;
-  color: #62717a;
-  text-shadow: 0 1px white;
-  /* Fallback for IE 8 */
-  background: #f2f2f2;
-  /* "transparent" doesn't work with Opera */
-  background: rgba(black, 0) !important;
-  border: 0;
-  border-radius: 0;
-  -webkit-appearance: none;
-
-  &:focus {
-    z-index: 3;
-    width: 100%;
-    color: #394349;
-  }
-
-  > option {
-    margin: 3px;
-    padding: 6px 8px;
-    text-shadow: none;
-    background: #f2f2f2;
+  background-color: $primary-white;
+  border: 1px solid $primary-border-color;
+  box-shadow: 0px 8px 18px -8px #ccc;
+  .dropdown {
+    display: block;
+    position: relative;
+    margin-top: 10px;
+    overflow: hidden;
+    height: 28px;
+    width: 150px;
+    background: $primary-hover;
+    border: 1px solid;
+    border-color: white #f7f7f7 #f5f5f5;
     border-radius: 3px;
+
+    &:before,
+    &:after {
+      content: '';
+      position: absolute;
+      z-index: 2;
+      top: 9px;
+      right: 10px;
+      width: 0;
+      height: 0;
+      border: 4px dashed;
+      border-color: $accent-color transparent;
+      pointer-events: none;
+    }
+
+    &:before {
+      border-bottom-style: solid;
+      border-top: none;
+    }
+
+    &:after {
+      margin-top: 7px;
+      border-top-style: solid;
+      border-bottom: none;
+    }
+    &:focus {
+      outline-style: none;
+    }
+  }
+  pagination-controls {
+    color: $primary-white;
+    display: inline-block;
+    @include center(true, true);
+  }
+  .dropdown-select {
+    position: relative;
+    width: 130%;
+    margin-bottom: 0;
+    height: 28px;
+    line-height: 14px;
+    font-size: 12px;
     outline-style: none;
-    border-style: none;
-    cursor: pointer;
+    color: #62717a;
+    text-shadow: 0 1px white;
+    /* Fallback for IE 8 */
+    background: #f2f2f2;
+    /* "transparent" doesn't work with Opera */
+    background: rgba(black, 0) !important;
+    border: 0;
+    border-radius: 0;
+    -webkit-appearance: none;
+    font-weight: 700;
+
+    &:focus {
+      z-index: 3;
+      width: 100%;
+      color: #394349;
+    }
+
+    > option {
+      margin: 3px;
+      padding: 6px 8px;
+      text-shadow: none;
+      background: #f2f2f2;
+      font-weight: 700;
+      border-radius: 3px;
+      outline-style: none;
+      border-style: none;
+      cursor: pointer;
+    }
   }
 }
 

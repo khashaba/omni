@@ -3,5 +3,6 @@
   "TITLE": "Le titre de mon application",
   "LanguageText": "DE",
   "CHALLENGE_PARAGRAPH": "Wenn ein Satz oder Etikett nicht lokalisiert ist, bedeutet dies, dass es sich um einen dynamischen Wert handelt, der vom API-Aufruf zurückgegeben wird. Die Tabelle wird angepasst, um Daten von JSON/API zu erhalten. In der Tabelle werden nur konfigurierte Spaltennamen verwendet.",
-  "CLICK_TO_START": "Klicken Sie zum Start!"
+  "CLICK_TO_START": "Klicken Sie zum Start!",
+  "ITEMS_PER_PAGE": "Artikel pro Seite"
 }
