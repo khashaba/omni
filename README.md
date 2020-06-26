@@ -1,27 +1,18 @@
+
 # OmniChallenge
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.3.
+This project is made for omni:us front end challenge
 
-## Development server
+ 
+## Note
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+ - The project has a lot of flows but it's just proof of concept. I
+   didn't follow the best practices in many cases but I did it because I
+   was just trying to implement the functionality in both ways.
+- Validation is not applied in many cases
+- Pagination is made in the front end , I didn't apply server pagination because it's not stated that i should build the api
+- Table component has many component that could be a separate component but i didn't separated them.
+- I didn't use any styling framwork which is very time consuming 
+## Run the project
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+ Navigate to the project and then run `npm install` and then run `ng serve -o` . The app will automatically open in the browser.
