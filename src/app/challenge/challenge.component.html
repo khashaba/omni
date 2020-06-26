@@ -1,1 +1,50 @@
-<p>challenge works!</p>
+<app-header></app-header>
+<div class="container">
+  <div class="message">
+   <h1>{{ 'TITLE' | translate }}</h1> 
+   <P>{{ 'CHALLENGE_PARAGRAPH' | translate }}</P> 
+  </div>
+  <app-generic-table
+    class="table-component"
+    [localJson]="getPath()"
+    [displayedColumns]="[
+      {
+        columnName: 'id',
+        dataType: 'number',
+        width: '200px',
+        padding: '0 5px'
+      },
+      {
+        columnName: 'title',
+        dataType: 'text'
+      },
+      {
+        columnName: 'date',
+        dataType: 'date'
+      },
+      {
+        columnName: 'price',
+        dataType: 'currency'
+      },
+      {
+        columnName: 'available',
+        dataType: 'checkbox'
+      }
+    ]"
+    [showTableBorders]="true"
+    [tableWidth]="'1000'"
+    [paginationSizeArray]="[5, 10, 25, 50, 100]"
+    [paginationSize]="25"
+  ></app-generic-table>
+</div>
+
+<!-- <div class="container">
+    <app-generic-table
+      class="table-component"
+      [localJson]="getPath()"
+      [apiPath]="'https://jsonplaceholder.typicode.com/users'"
+      [displayedColumns]="['id', 'title', 'category', 'price']"
+      [displayedColumns]="['id', 'name', 'username', 'email']"
+    ></app-generic-table>
+  </div>
+   -->

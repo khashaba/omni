@@ -1,22 +1,23 @@
 import { Component, OnInit } from '@angular/core';
-import localJson from '../../assets/products.json';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
-  selector: 'app-challenge',
-  templateUrl: './challenge.component.html',
-  styleUrls: ['./challenge.component.scss']
+  selector: 'app-header',
+  templateUrl: './header.component.html',
+  styleUrls: ['./header.component.scss']
 })
-export class ChallengeComponent implements OnInit {
-  title = 'omni-challenge';
+export class HeaderComponent implements OnInit {
+
   constructor(private translate: TranslateService) {
     translate.setDefaultLang('en');
   }
-  ngOnInit(): void {}
-  getPath() {
-    return localJson;
+  ngOnInit(): void {
   }
+
   changeLanguage(language: string) {
     this.translate.use(language.toLowerCase());
   }
+
 }
+
+

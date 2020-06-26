@@ -1,13 +1,14 @@
 // Brand Colors
 
 $primary-color: #bf3547;
-$accent-color: #f7ba51;
+$accent-color: #027dff;
 $primary-border-color: #EAEAEA;
 $primary-white: #ffffff;
 $primary-black: #000000;
 $primary-hover:#FCFCFC;
 $light-grey: #cdcdcd;
 $silver-grey:#6a6a6a;
+$dark-grey:#23272a;
 
 
 //Media query variables
@@ -40,4 +41,5 @@ $font-weights:(
     "regular": 400,
     "bold": 600,
     "black-bold": 900,
-)
+);
+$font-main : 'Barlow';

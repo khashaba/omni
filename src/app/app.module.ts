@@ -13,18 +13,19 @@ import { LanguageGroupComponent } from './shared/components/language-group/langu
 import { UtilityService } from './shared/services/utility.service';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { ChallengeComponent } from './challenge/challenge.component';
+import { PageNotFoundComponent } from './shared/components/page-not-found/page-not-found.component';
+import { HeaderComponent } from './shared/components/header/header.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
 }
 
 @NgModule({
-  declarations: [AppComponent, GenericTableComponent, LanguageGroupComponent, WelcomeComponent, ChallengeComponent],
+  declarations: [AppComponent, GenericTableComponent, LanguageGroupComponent, WelcomeComponent, ChallengeComponent, PageNotFoundComponent, HeaderComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    AppRoutingModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -33,6 +34,7 @@ export function HttpLoaderFactory(http: HttpClient) {
       },
     }),
     NgxPaginationModule,
+    AppRoutingModule
   ],
   providers: [UtilityService],
   bootstrap: [AppComponent],

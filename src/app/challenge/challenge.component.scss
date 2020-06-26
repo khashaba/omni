@@ -1,0 +1,22 @@
+@import 'variables';
+@import 'mixins';
+
+.container{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+
+    .message{
+        @include center(true,false);
+        text-align: center;
+        margin-top: 20px;
+
+    }
+    .table-component{
+        @include center(true, false);
+        margin-top: 10%;
+    }
+}
+
+
+

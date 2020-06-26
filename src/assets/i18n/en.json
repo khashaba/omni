@@ -1,5 +1,8 @@
 {
     "HELLO": "hello world",
     "TITLE": "The title of my app",
-    "LanguageText": "EN"
+    "LanguageText": "EN",
+    "CHALLENGE_PARAGRAPH":"If a sentence or label is not localized, that means it is a dynamic value returned from the API call. The table is customized to get data from JSON/API. only configured column names will be used in the table.",
+    "CLICK_TO_START": "Click to start!"
+
 }

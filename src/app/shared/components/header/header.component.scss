@@ -1,0 +1,21 @@
+@import 'styles';
+header{
+    width: 100vw;
+    height: 10vh;
+    background-color: $dark-grey;
+    position: relative;
+    img{
+        @include center(false, true);
+    left: 2em;
+    }
+    h1{
+        @include center(true, true);
+        color: $accent-color;
+        font-size: $font-xxl;
+    }
+}
+.language-input{
+    @include center(false, true);
+    margin: 0 30px;
+    right: 2em;
+}
