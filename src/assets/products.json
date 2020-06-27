@@ -78,5 +78,244 @@
     "price": "430",
     "date":"2020-02-10",
     "available": false
+  },
+  {
+    "id": 11,
+    "title": "Galaxy S10",
+    "category": "Mobile",
+    "price": 310,
+    "date":"2020-12-12",
+    "available": true
+  },
+  {
+    "id": 12,
+    "title": "Iphone xs",
+    "category": "Mobile",
+    "price": 270,
+    "date":"2020-02-29",
+    "available": true
+  },
+  {
+    "id": 13,
+    "title": "Microsoft Surface",
+    "category": "electronics",
+    "price": 810,
+    "date":"2020-02-10",
+    "available": false
+  },
+  {
+    "id": 14,
+    "title": "Oppo",
+    "category": "Mobile",
+    "price": "120",
+    "date":"2020-02-20",
+    "available": false
+  },
+  {
+    "id": 15,
+    "title": "Iphone 8",
+    "category": "Mobile",
+    "price": "230",
+    "date":"2020-05-15",
+    "available": true
+  },
+  {
+    "id": 16,
+    "title": "Note 10 edge",
+    "category": "Mobile",
+    "price": "300",
+    "date":"2020-05-10",
+    "available": true
+  },
+  {
+    "id":17,
+    "title": "Smart light",
+    "category": "electronics",
+    "price": "89",
+    "date":"2020-06-23",
+    "available": true
+  },
+  {
+    "id": 18,
+    "title": "Chrome Case",
+    "category": "electronics",
+    "price": "44",
+    "date":"2020-05-29",
+    "available": false
+  },
+  {
+    "id": 19,
+    "title": "Apple TV",
+    "category": "electronics",
+    "price": "290",
+    "date":"2019-01-10",
+    "available": true
+  },
+  {
+    "id": 20,
+    "title": "Apple Macbook Pro",
+    "category": "electronics",
+    "price": "830",
+    "date":"2020-02-10",
+    "available": false
+  },  {
+    "id": 21,
+    "title": "buckophone",
+    "category": "Mobile",
+    "price": 180,
+    "date":"2020-12-12",
+    "available": true
+  },
+  {
+    "id": 22,
+    "title": "Iphone 7",
+    "category": "Mobile",
+    "price": 120,
+    "date":"2020-02-29",
+    "available": true
+  },
+  {
+    "id": 23,
+    "title": "Galaxy Note 9",
+    "category": "Mobile",
+    "price": 20,
+    "date":"2020-02-10",
+    "available": false
+  },
+  {
+    "id": 24,
+    "title": "Pixle",
+    "category": "Mobile",
+    "price": "290",
+    "date":"2020-02-20",
+    "available": false
+  },
+  {
+    "id": 25,
+    "title": "Motorlla",
+    "category": "Mobile",
+    "price": "39",
+    "date":"2020-05-15",
+    "available": true
+  },
+  {
+    "id": 26,
+    "title": "Nokia 660",
+    "category": "Mobile",
+    "price": "10",
+    "date":"2020-05-10",
+    "available": true
+  },
+  {
+    "id": 27,
+    "title": "hp probook",
+    "category": "electronics",
+    "price": "120",
+    "date":"2020-06-23",
+    "available": true
+  },
+  {
+    "id": 28,
+    "title": "lenovo xj2",
+    "category": "electronics",
+    "price": "50",
+    "date":"2020-05-29",
+    "available": false
+  },
+  {
+    "id": 29,
+    "title": "lenovo Idealpad",
+    "category": "electronics",
+    "price": "290",
+    "date":"2019-01-10",
+    "available": true
+  },
+  {
+    "id": 30,
+    "title": "Legion lenovo",
+    "category": "electronics",
+    "price": "630",
+    "date":"2020-02-10",
+    "available": false
+  },
+  {
+    "id": 31,
+    "title": "Samasung A3",
+    "category": "Mobile",
+    "price": 120,
+    "date":"2020-12-12",
+    "available": true
+  },
+  {
+    "id": 32,
+    "title": "Iphone x",
+    "category": "Mobile",
+    "price": 320,
+    "date":"2020-02-29",
+    "available": true
+  },
+  {
+    "id": 33,
+    "title": "Galaxy A3",
+    "category": "Mobile",
+    "price": 11,
+    "date":"2020-02-10",
+    "available": false
+  },
+  {
+    "id": 34,
+    "title": "xaomni",
+    "category": "Mobile",
+    "price": "120",
+    "date":"2020-02-20",
+    "available": false
+  },
+  {
+    "id": 35,
+    "title": "Iphone x",
+    "category": "Mobile",
+    "price": "210",
+    "date":"2020-05-15",
+    "available": true
+  },
+  {
+    "id": 36,
+    "title": "Google Pixle",
+    "category": "Mobile",
+    "price": "370",
+    "date":"2020-05-10",
+    "available": true
+  },
+  {
+    "id": 37,
+    "title": "Micropphone",
+    "category": "electronics",
+    "price": "20",
+    "date":"2020-06-23",
+    "available": true
+  },
+  {
+    "id": 38,
+    "title": "Cable",
+    "category": "electronics",
+    "price": "20",
+    "date":"2020-05-29",
+    "available": false
+  },
+  {
+    "id": 39,
+    "title": "Alexa",
+    "category": "electronics",
+    "price": "690",
+    "date":"2019-01-10",
+    "available": true
+  },
+  {
+    "id": 40,
+    "title": "Sony Radio",
+    "category": "electronics",
+    "price": "30",
+    "date":"2020-02-10",
+    "available": false
   }
 ]
