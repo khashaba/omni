@@ -20,7 +20,11 @@ export class GenericTableComponent implements OnInit {
 
   receivedTableData;
   filters = ['equality', 'range'];
-  applyFilters = { range: { from: '', to: '' } };
+  applyFilters = {};
+  otherFilters = {}
+  rangeFrom = [];
+  rangeTo = [];
+  filterColumn: '';
   errorMessage: string = null;
   isDeletePopupDisplayed = [];
   isFilterPopupDisplayed = [];
@@ -31,7 +35,6 @@ export class GenericTableComponent implements OnInit {
   searchText = [];
   searchColumn = '';
 
-  
   page = 1;
   constructor(
     private httpClient: HttpClient,
@@ -72,30 +75,55 @@ export class GenericTableComponent implements OnInit {
     this.paginationSize = event;
   }
   filterToggle(i) {
-    this.closePopup('delete');
+    this.closePopup('all');
     this.isFilterPopupDisplayed[i] = !this.isFilterPopupDisplayed[i];
   }
   deleteToggle(i) {
-    this.closePopup('filter');
+    this.closePopup('all');
     this.isDeletePopupDisplayed[i] = !this.isDeletePopupDisplayed[i];
   }
   sortToggle(columnName: string) {
+    this.closePopup('all');
     if (this.sortColumn === columnName) {
-      if (this.sortIndex < this.sortTypes.length - 1) { this.sortIndex++; }
-      else { this.sortIndex = 0; }
-    }
-    else{
+      if (this.sortIndex < this.sortTypes.length - 1) {
+        this.sortIndex++;
+      } else {
+        this.sortIndex = 0;
+      }
+    } else {
       this.sortColumn = columnName;
       this.sortIndex++;
     }
   }
-  applyFilter(column) {
+  applyFilter(column, columnNumber) {
+    this.filterColumn = column;
+    this.applyFilters = {};
+    
     this.closePopup('all');
-    this.receivedTableData = this.utility.filter(
-      this.receivedTableData,
-      column,
-      this.applyFilters
-    );
+    if (this.rangeFrom[columnNumber] || this.rangeTo[columnNumber]) {
+      let from = {};
+      let to = {};
+
+      if (this.rangeFrom[columnNumber]) {
+        from = { from: this.rangeFrom[columnNumber] };
+        this.rangeFrom = [];
+      }
+      if (this.rangeTo[columnNumber]) {
+        to = { to: this.rangeTo[columnNumber] };
+        this.rangeTo = [];
+      }
+      this.applyFilters['range'] = { ...from, ...to };
+    }
+    else{
+
+      this.applyFilters = {...this.otherFilters};
+    }
+    console.log('aplly fitlers');
+    console.log(this.applyFilters);
+    console.log('filter columne');
+
+    console.log(this.filterColumn);
+    console.log('nehayto');
   }
   closePopup(popupName) {
     if (popupName === 'all') {

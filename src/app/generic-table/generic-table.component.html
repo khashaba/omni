@@ -61,15 +61,17 @@
         </div>
 
         <div class="filter-menu" *ngIf="isFilterPopupDisplayed[i]">
+          <span class="fa fa-times close-filter" (click) = "closePopup('all')"></span>
+
           <li *ngFor="let filter of filters">
-            <span>{{ filter }}</span>
-            <div *ngIf="filter == 'equality'" class="controls">
+            <div *ngIf="filter == 'equality' && column.dataType == 'checkbox'" class="controls">
+              <span>{{ filter }}</span>
               <input
                 class="radio"
                 type="radio"
                 name="{{ filter }}"
                 value="true"
-                (change)="applyFilters['equality'] = true"
+                (change)="otherFilters['equality'] = true"
               />
               <label class="radio" for="true">True</label>
               <input
@@ -77,29 +79,30 @@
                 type="radio"
                 name="{{ filter }}"
                 value="false"
-                (change)="applyFilters['equality'] = false"
+                (change)="otherFilters['equality'] = false"
               />
               <label class="radio" for="false">False</label>
             </div>
             <div *ngIf="filter != 'equality'" class="controls">
+              <span>{{ filter }}</span>
               <input
                 class="radio"
                 type="number"
                 placeholder="from"
                 name="{{ filter }}"
-                [(ngModel)]="applyFilters.range.from"
+                [(ngModel)]="rangeFrom[i]"
               />
               <input
                 class="radio"
                 type="number"
                 placeholder="to"
                 name="{{ filter }}"
-                [(ngModel)]="applyFilters.range.to"
+                [(ngModel)]="rangeTo[i]"
               />
             </div>
           </li>
           <li>
-            <button type="button" (click)="applyFilter(column)">Filter!</button>
+            <button type="button" (click)="applyFilter(column,i)">Filter!</button>
           </li>
         </div>
       </th>
@@ -109,6 +112,7 @@
     <tr
       *ngFor="
         let dataRow of receivedTableData
+          | filter: filterColumn : applyFilters
           | search
             : {
                 searchColumn: searchColumn,
@@ -158,7 +162,7 @@
   </tbody>
 </table>
 <div class="table-footer">
-  <p>{{"ITEMS_PER_PAGE" | translate}}</p>
+  <p>{{ 'ITEMS_PER_PAGE' | translate }}</p>
   <div class="dropdown">
     <select
       class="dropdown-select"
@@ -172,9 +176,9 @@
       >
     </select>
   </div>
-    <pagination-controls
-      id="listing-pagination"
-      directionLinks="true"
-      (pageChange)="page = $event"
-    ></pagination-controls>
+  <pagination-controls
+    id="listing-pagination"
+    directionLinks="true"
+    (pageChange)="page = $event"
+  ></pagination-controls>
 </div>

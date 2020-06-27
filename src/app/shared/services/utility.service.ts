@@ -6,6 +6,10 @@ import { element } from 'protractor';
 })
 export class UtilityService {
   constructor() {}
+  // this should be a pipe
+  // this is not best practice
+  // but i did it like that to try another way
+  // i already did the sorting and searching using the pips
   filter(rows, column, filters) {
     const columnName = column.columnName;
     let filteredRows = rows.slice(0);

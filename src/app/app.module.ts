@@ -17,6 +17,7 @@ import { PageNotFoundComponent } from './shared/components/page-not-found/page-n
 import { HeaderComponent } from './shared/components/header/header.component';
 import { SearchPipe } from './shared/pipes/search.pipe';
 import { SortByPipe } from './shared/pipes/sort-by.pipe';
+import { FilterPipe } from './shared/pipes/filter.pipe';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -32,7 +33,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     PageNotFoundComponent,
     HeaderComponent,
     SearchPipe,
-    SortByPipe
+    SortByPipe,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
